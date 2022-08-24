@@ -1,0 +1,33 @@
+﻿@page
+@model WebApplication1.Pages.ToDo.IndexModel
+@{
+}
+
+<br>
+<h2>To do list</h2>
+<a class='btn btn-primary btn-sm' href='/ToDo/Create'>New Task</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Task</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.Todotasks){
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.task</td>
+                <td>@item.created</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/ToDo/Edit?id=@item.id"> Edit </a>
+                    <a class="btn btn-danger btn-sm" href="/ToDo/Delete?id=@item.id"> Delete </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
